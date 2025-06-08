@@ -12,5 +12,3 @@ resp = requests.post(SERVER, json=data,
 client = sseclient.SSEClient(resp)        # sseclient 與 requests 無縫整合:contentReference[oaicite:7]{index=7}
 for event in client.events():
     print(f"[{event.event}] {event.data}")
-    if event.event == "echo":             # 收到最終結果就結束
-        break
